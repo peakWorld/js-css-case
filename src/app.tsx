@@ -1,14 +1,23 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { routes } from './routes';
+import ReactDOM from 'react-dom';
+import { ConfigProvider } from 'antd';
+import { HashRouter as Router, Switch } from 'react-router-dom';
+import Layout from '@components/layout';
+import zhCN from 'antd/lib/locale/zh_CN';
+import 'antd/dist/antd.css';
+import './app.scss';
 
-const ROUTES_CONFIGS = [...routes.entries()].map(([rid, value]) => ({ rid, ...value }))
-
-const App = () => (
-  <Router>
-    <Switch>
-      {ROUTES_CONFIGS.map(({ rid, ...props }) => <Route key={rid} {...props} />)}
-    </Switch>
-  </Router>
+ReactDOM.render(
+  <ConfigProvider locale={zhCN}>
+    <Router>
+      <Switch>
+        <Layout />
+      </Switch>
+    </Router>
+  </ConfigProvider>
+  ,
+  document.getElementById('app'),
+  () => {
+    console.log('render process:', process.env.NODE_ENV)
+  }
 )
-export default App

@@ -1,13 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const CopyPlugin = require("copy-webpack-plugin");
 const { ROOT_PATH, SRC_PATH, OUTPUT_PATH, isPro } = require('./constants');
 
 module.exports = {
-  entry: path.join(SRC_PATH, './index.tsx'),
+  entry: path.join(SRC_PATH, './app.tsx'),
   output: {
     filename: 'bundle.js',
     path: OUTPUT_PATH,
@@ -22,7 +20,10 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         include: SRC_PATH,
-        use: 'ts-loader'
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: !isPro
+        }
       },
       {
         test: /\.css$/,
@@ -30,7 +31,7 @@ module.exports = {
           'style-loader',
           'css-loader',
         ],
-        include: path.join(ROOT_PATH, './node_modules/normalize.css')
+        include: path.join(ROOT_PATH, 'node_modules/antd/dist/antd.css')
       },
       {
         test: /\.scss$/,

@@ -1,19 +1,21 @@
 {
-  "name": "3d-rubik",
+  "name": "js-css-case",
   "version": "1.0.0",
-  "description": "3D魔方",
+  "description": "js、css相关",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.config.dev.js",
-    "local": "cross-env NODE_ENV=local webpack serve --config ./config/webpack.config.dev.js",
-    "build": "webpack --config ./config/webpack.config.prod.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --config ./config/webpack.config.dev.js",
+    "build:prod": "webpack --config ./config/webpack.config.prod.js",
     "dll": "webpack --config ./config/webpack.config.dll.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@loadable/component": "^5.14.1",
-    "normalize.css": "^8.0.1",
+    "@ant-design/icons": "^4.6.2",
+    "antd": "^4.15.0",
+    "moment": "^2.29.1",
+    "path-to-regexp": "^6.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
@@ -27,6 +29,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.2.0",
     "html-webpack-plugin": "^5.0.0-beta.4",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.1",

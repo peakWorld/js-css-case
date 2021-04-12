@@ -2,15 +2,14 @@
  * @Author: lyf
  * @Date: 2021-02-23 17:40:50
  * @LastEditors: lyf
- * @LastEditTime: 2021-02-25 14:58:09
+ * @LastEditTime: 2021-04-08 15:48:09
  * @Description: hooks的deps是对象的情况
- * @FilePath: /cook-electron/Users/a58/iworkspace/3d-case/src/tutorial-react/case1/index.tsx
+ * @FilePath: /taro-cloud-demo/Users/a58/iworkspace/js-css-case/src/tutorial-react/case1/index.tsx
  */
 import React, { useState, useEffect } from 'react';
 
 const Case1 = () => {
-
-  const [time, setTime] = useState(Date.now())
+  const [_, setTime] = useState(Date.now())
   const [state, setState] = useState({ x: 1, y: 2 })
 
   useEffect(() => {

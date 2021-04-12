@@ -1,30 +1,35 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "moduleResolution": "node",
     "module": "ESNext",
-    "target": "es5",
+    "target": "ESNext",
     "jsx": "react",
-    "downlevelIteration": true,
-    "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "importsNotUsedAsValues": "remove",
     "baseUrl": "./",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
-      "*": ["src/types/*"]
     },
+    "strict": true,
+    
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "preserveWatchOutput": true,
+    "experimentalDecorators": true
   },
-  "include": [
-    "src/**/*",
-  ],
-  "exclude": [
-    "node_modules",
-    "ouput",
-    "config",
-    "src/workers/libs"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "output"]
 }
