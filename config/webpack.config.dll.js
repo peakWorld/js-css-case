@@ -1,13 +1,15 @@
 const webpack = require('webpack')
 const path = require('path')
-const { OUTPUT_PATH } = require('./constants')
+const { DLL_PATH, ROOT_PATH } = require('./constants')
 
 module.exports = {
+  context: ROOT_PATH,
+  mode: 'development',
   entry: {
-    vendor: ['react', 'react-dom', 'react-router-dom'],
+    vendors: ['react', 'react-dom', 'react-router-dom', 'antd', '@ant-design/icons'],
   },
   output: {
-    path: OUTPUT_PATH,
+    path: DLL_PATH,
     filename: '[name].dll.js',
     library: {
       type: 'umd',
@@ -16,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DllPlugin({
-      path: path.join(OUTPUT_PATH, './[name]-manifest.json'),
+      path: path.join(DLL_PATH, './[name]-manifest.json'),
       name: '[name]_library'
     })
   ]

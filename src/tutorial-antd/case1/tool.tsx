@@ -64,7 +64,7 @@ const Tool = ({ setParams, handleModal }: ToolProps) => {
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       <Space wrap>
         <Search
-          placeholder="输入用户名"
+          placeholder="输入用户名3"
           allowClear
           onSearch={handleUserNameChange}
           style={{ width: 250 }}

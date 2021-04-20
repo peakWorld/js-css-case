@@ -7,17 +7,22 @@ import zhCN from 'antd/lib/locale/zh_CN';
 import 'antd/dist/antd.css';
 import './app.scss';
 
-ReactDOM.render(
-  <ConfigProvider locale={zhCN}>
-    <Router>
-      <Switch>
-        <Layout />
-      </Switch>
-    </Router>
-  </ConfigProvider>
-  ,
-  document.getElementById('app'),
-  () => {
-    console.log('render process:', process.env.NODE_ENV)
-  }
-)
+const renderApp = () => {
+  ReactDOM.render(
+    <ConfigProvider locale={zhCN}>
+      <Router>
+        <Switch>
+          <Layout />
+        </Switch>
+      </Router>
+    </ConfigProvider>
+    ,
+    document.getElementById('app')
+  )
+}
+
+if ((module as any).hot) {
+  (module as any).hot.accept()
+}
+
+renderApp()

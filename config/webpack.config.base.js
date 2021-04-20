@@ -7,8 +7,8 @@ const { ROOT_PATH, SRC_PATH, OUTPUT_PATH, isPro } = require('./constants');
 module.exports = {
   entry: path.join(SRC_PATH, './app.tsx'),
   output: {
-    filename: 'bundle.js',
     path: OUTPUT_PATH,
+    filename: '[name].js',
     publicPath: '/'
   },
   stats: {
@@ -52,12 +52,15 @@ module.exports = {
       })
     ]
   },
+  optimization: {
+    runtimeChunk: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       env: isPro,
       inject: 'body',
       template: './index.html'
-    })
-    // new  BundleAnalyzerPlugin()
+    }),
+    // new BundleAnalyzerPlugin()
   ]
 }
