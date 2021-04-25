@@ -1,14 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ROOT_PATH, SRC_PATH, OUTPUT_PATH, isPro } = require('./constants');
+const { getStyleLoaders, getFileLoader } = require('./utils');
 
 module.exports = {
   entry: path.join(SRC_PATH, './app.tsx'),
   output: {
     path: OUTPUT_PATH,
-    filename: '[name].js',
+    filename: isPro ? 'js/[name].[contenthash:10].js' : '[name].js',
+    chunkFilename: isPro ? 'js/[name].[contenthash:10].js' : '[name].js',
     publicPath: '/'
   },
   stats: {
@@ -18,30 +21,21 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
         include: SRC_PATH,
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: !isPro
-        }
-      },
-      {
-        test: /\.css$/,
+        exclude: /(node_modules)/,
         use: [
-          'style-loader',
-          'css-loader',
-        ],
-        include: path.join(ROOT_PATH, 'node_modules/antd/dist/antd.css')
+          'thread-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true, // 关闭ts-loader的类型检查,配合fork-ts-checker-webpack-plugin使用
+              happyPackMode: true, // 使用thread-loader时,必须为true
+            }
+          }
+        ]
       },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ],
-        include: SRC_PATH
-      }
+      getFileLoader(),
+      ...getStyleLoaders(),
     ]
   },
   resolve: {
@@ -57,9 +51,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      env: isPro,
-      inject: 'body',
+      env: process.env.NODE_ENV,
       template: './index.html'
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      async: !isPro, // 是否异步
+      typescript: { // 对ts的语义和语法进行检查
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        }
+      },
+      eslint: { // 进行eslint检查
+        files: './src/**/*.{ts,tsx,js,jsx}'
+      }
     }),
     // new BundleAnalyzerPlugin()
   ]

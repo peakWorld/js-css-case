@@ -6,19 +6,25 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@utils/*": ["src/utils/*"],
-      "@hooks/*": ["src/hooks/*"],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
     },
     "strict": true,
-    
     /* Module Resolution Options */
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-
     /* Additional Checks */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -26,10 +32,15 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "alwaysStrict": true,
-    "removeComments": true,
     "preserveWatchOutput": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "build", "output"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

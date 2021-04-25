@@ -1,0 +1,9 @@
+public/
+.DS_Store
+node_modules/
+dist/
+
+templates/
+npm-debug.log
+yarn-error.log
+*.js

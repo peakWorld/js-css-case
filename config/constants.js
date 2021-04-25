@@ -2,9 +2,9 @@
  * @Author: lyf
  * @Date: 2021-02-01 10:33:49
  * @LastEditors: lyf
- * @LastEditTime: 2021-04-20 17:23:55
+ * @LastEditTime: 2021-04-22 17:45:57
  * @Description: 路径常量
- * @FilePath: /taro-cloud-demo/Users/a58/iworkspace/js-css-case/config/constants.js
+ * @FilePath: /js-css-case/config/constants.js
  */
 const path = require('path')
 
@@ -23,4 +23,5 @@ module.exports = {
   DLL_PATH,
   isDev,
   isPro,
+  isAntd: true
 }

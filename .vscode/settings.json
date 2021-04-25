@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true, // vscode保存, 自动格式化代码
+  "[typescriptreact]": { // 关闭typescriptreact, 保存格式化代码
+    "editor.formatOnSave": false,
+  },
+  "[typescript]": { // 关闭typescriptreact,  保存格式化代码
+    "editor.formatOnSave": false,
+  },
+  "editor.codeActionsOnSave": { // 开启eslint保存格式化代码
+    "source.fixAll.eslint": true
+  },
+  "eslint.format.enable": true,
+  "eslint.validate": [ // eslint 检查typescript、typescriptreact格式文件
+    "typescript",
+    "typescriptreact"
+  ],
+}

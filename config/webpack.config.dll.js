@@ -6,7 +6,7 @@ module.exports = {
   context: ROOT_PATH,
   mode: 'development',
   entry: {
-    vendors: ['react', 'react-dom', 'react-router-dom', 'antd', '@ant-design/icons'],
+    vendors: ['react', 'react-dom', 'react-router-dom', 'antd', '@ant-design/icons', 'moment'],
   },
   output: {
     path: DLL_PATH,

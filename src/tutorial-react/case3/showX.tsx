@@ -6,24 +6,27 @@
  * @Description: In User Settings Edit
  * @FilePath: /cook-electron/Users/a58/iworkspace/3d-case/src/tutorial-react/case3/showX.tsx
  */
-import React, { useContext, useMemo, memo, useEffect } from 'react'
-import Context from './constants'
+import React, { useContext, useMemo, memo, useEffect } from 'react';
+import Context from './constants';
 
 const ShowX = () => {
-  const { x, addX } = useContext(Context)
+  const { x, addX } = useContext(Context);
 
   useEffect(() => {
-    console.log('showX useEffect...')
-  }, [addX])
+    console.log('showX useEffect...');
+  }, [addX]);
 
-  console.log('showX')
+  console.log('showX');
 
-  return useMemo(() => (
-    <div>
-      <div>x: {x}</div>
-      <button onClick={addX}>addX</button>
-    </div>
-  ), [x])
-}
+  return useMemo(
+    () => (
+      <div>
+        <div>x: {x}</div>
+        <button onClick={addX}>addX</button>
+      </div>
+    ),
+    [x],
+  );
+};
 
-export default memo(ShowX)
+export default memo(ShowX);

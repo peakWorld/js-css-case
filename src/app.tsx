@@ -15,14 +15,15 @@ const renderApp = () => {
           <Layout />
         </Switch>
       </Router>
-    </ConfigProvider>
-    ,
-    document.getElementById('app')
-  )
-}
+    </ConfigProvider>,
+    document.getElementById('app'),
+  );
+};
 
+/* eslint-disable */
 if ((module as any).hot) {
-  (module as any).hot.accept()
+  (module as any).hot.accept();
 }
+/* eslint-enable */
 
-renderApp()
+renderApp();

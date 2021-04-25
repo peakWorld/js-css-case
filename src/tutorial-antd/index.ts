@@ -6,6 +6,6 @@
  * @Description: In User Settings Edit
  * @FilePath: /taro-cloud-demo/Users/a58/iworkspace/js-css-case/src/tutorial-antd/index.ts
  */
-import { lazy } from 'react'
+import { lazy } from 'react';
 
-export const TutorialAntdCase1 = lazy(() => import(/* webpackChunkName: "TutorialAntdCase1" */ './case1'))
+export const TutorialAntdCase1 = lazy(() => import(/* webpackChunkName: "TutorialAntdCase1" */ './case1'));

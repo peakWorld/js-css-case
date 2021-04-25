@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 import { LocationState, PLATFORM_CONFIG } from '@constants/routes';
 
 interface MenuBarProps {
-  data: LocationState
+  data: LocationState;
 }
-const { SubMenu, Item } = Menu
+const { SubMenu, Item } = Menu;
 
 const MenuBar = ({ data }: MenuBarProps) => {
   const { rid, ...rest } = data;
-  const [selectedKeys, setSelectedKeys] = useState([rid])
-  const [openKeys, setOpenKeys] = useState([rid[0]])
+  const [selectedKeys, setSelectedKeys] = useState([rid]);
+  const [openKeys, setOpenKeys] = useState([rid[0]]);
 
   useEffect(() => {
     if (rid !== selectedKeys[0]) {
-      setSelectedKeys([rid]) // 单选
-      setOpenKeys((keys) => [...keys, rid[0]]) // // 打开多个SubMenu
+      setSelectedKeys([rid]); // 单选
+      setOpenKeys((keys) => [...keys, rid[0]]); // // 打开多个SubMenu
     }
-  }, [rid, selectedKeys])
+  }, [rid, selectedKeys]);
 
   return (
     <Menu
@@ -29,41 +29,37 @@ const MenuBar = ({ data }: MenuBarProps) => {
       onSelect={({ selectedKeys }) => setSelectedKeys(selectedKeys as string[])}
       onOpenChange={(openKeys) => setOpenKeys(openKeys as string[])}
     >
-      {
-        PLATFORM_CONFIG.map(({ pid, title, icon: Icon, children }) => {
-          if (children && children.length > 0) {
-            return (
-              <SubMenu
-                key={pid}
-                title={
-                  <span>
-                    <Icon />
-                    <span>{title}</span>
-                  </span>
+      {PLATFORM_CONFIG.map(({ pid, title, icon: Icon, children }) => {
+        if (children && children.length > 0) {
+          return (
+            <SubMenu
+              key={pid}
+              title={
+                <span>
+                  <Icon />
+                  <span>{title}</span>
+                </span>
+              }
+            >
+              {children.map(({ rid: cRid, title: cTitle, path, hide }) => {
+                const restState = cRid === rid ? rest : {};
+                const title = cRid === rid && rest.title ? rest.title : cTitle;
+                if (!hide) {
+                  return (
+                    <Item key={cRid}>
+                      <Link to={{ pathname: path as string, state: { rid: cRid, ...restState } }}>{title}</Link>
+                    </Item>
+                  );
                 }
-              >
-                {
-                  children.map(({ rid: cRid, title: cTitle, path, hide }) => {
-                    const restState = cRid === rid ? rest : {}
-                    const title = cRid === rid && rest.title ? rest.title : cTitle
-                    if (!hide) {
-                      return (
-                        <Item key={cRid}>
-                          <Link to={{ pathname: path as string, state: { rid: cRid, ...restState } }}>{title}</Link>
-                        </Item>
-                      )
-                    }
-                    return null
-                  })
-                }
-              </SubMenu>
-            )
-          }
-          return null
-        })
-      }
+                return null;
+              })}
+            </SubMenu>
+          );
+        }
+        return null;
+      })}
     </Menu>
-  )
-}
+  );
+};
 
-export default MenuBar
+export default MenuBar;

@@ -6,17 +6,17 @@
  * @Description: In User Settings Edit
  * @FilePath: /cook-electron/Users/a58/iworkspace/3d-case/src/tutorial-react/case3/showY.tsx
  */
-import React, { useContext, useEffect, memo } from 'react'
-import Context from './constants'
+import React, { useContext, useEffect, memo } from 'react';
+import Context from './constants';
 
 const ShowY = () => {
-  const { y, addY, addZ } = useContext(Context)
+  const { y, addY, addZ } = useContext(Context);
 
   useEffect(() => {
-    console.log('showY useEffect...')
-  }, [addY])
+    console.log('showY useEffect...');
+  }, [addY]);
 
-  console.log('showY')
+  console.log('showY');
 
   return (
     <div>
@@ -24,7 +24,7 @@ const ShowY = () => {
       <button onClick={addY}>addY</button>
       <button onClick={addZ}>addZ</button>
     </div>
-  )
-}
+  );
+};
 
-export default memo(ShowY)
+export default memo(ShowY);
