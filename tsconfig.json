@@ -4,6 +4,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "jsx": "react",
+    "outDir": "./output",
     "baseUrl": "./",
     "paths": {
       "@components/*": [

@@ -30,7 +30,8 @@ const Draw = ({ canDraw = true }: DrawProps) => {
       }, 50);
     }
 
-    const a: string = 1235;
+    // const a: string = 1235;
+    // console.log(a);
   }, [rotating]);
 
   const handleBeginDraw = async (drawNum: number) => {
