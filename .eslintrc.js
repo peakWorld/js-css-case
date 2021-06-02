@@ -13,7 +13,7 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ["src/**/*.tsx", "src/**/*.ts"],
+      files: ["src/**/*.tsx", "src/**/*.ts"], // 对tsx?文件进行eslint检验
       extends: [
         "eslint:recommended",
         "plugin:react/recommended",
@@ -39,7 +39,7 @@ module.exports = {
       }
     },
     {
-      files: ["config/*.js"],
+      files: ["config/*.js"], // 对js文件进行eslint校验
       extends: [
         "eslint:recommended",
         "plugin:prettier/recommended"

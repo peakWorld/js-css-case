@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.json", // eslint设置了project地址, 则必须设置include
   "include": [
     "config/*.js",
     ".eslintrc.js",
