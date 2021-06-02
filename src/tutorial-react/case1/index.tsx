@@ -2,15 +2,17 @@
  * @Author: lyf
  * @Date: 2021-02-23 17:40:50
  * @LastEditors: lyf
- * @LastEditTime: 2021-04-22 20:06:18
+ * @LastEditTime: 2021-05-20 19:46:42
  * @Description: hooks的deps是对象的情况
- * @FilePath: /js-css-case/src/tutorial-react/case1/index.tsx
+ * @FilePath: /taro-cloud-demo/Users/a58/iworkspace/js-css-case/src/tutorial-react/case1/index.tsx
  */
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Case1 = () => {
   const [_, setTime] = useState(Date.now());
   const [state, setState] = useState({ x: 1, y: 2 });
+  const history = useHistory<any>();
 
   useEffect(() => {
     console.log('useEffect...');
@@ -21,6 +23,10 @@ const Case1 = () => {
     setTime(Date.now());
   };
 
+  const handleChangeRoute = () => {
+    console.log('history', history.push('/mobile/draw?a=1&b=3'));
+  };
+
   console.log('state', state);
   return (
     <div>
@@ -29,6 +35,7 @@ const Case1 = () => {
       <span>y: {state.y}</span>
       <button onClick={() => setState((state) => ({ ...state, x: state.x + 1 }))}>x加一</button>
       <button onClick={handleTime}>变化6</button>
+      <button onClick={handleChangeRoute}>change route</button>
     </div>
   );
 };

@@ -1,0 +1,47 @@
+.draw {
+  position: relative;
+  width: 345px;
+  height: 100%;
+  background: url(https://img.58cdn.com.cn/m58/tzlive/jy_luckydraw_bg_2501fcd.png) no-repeat 0 0 / 345px 360px, linear-gradient(90deg, #662495 0%, #4911BF 100%) no-repeat center / 100% 100%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &-bg {
+    position: absolute;
+    width: 296px;
+    height: 296px;
+    left: 24.5px;
+    top: 32px;
+    background: url(https://img.58cdn.com.cn/m58/tzlive/jy_luckydraw_rotary_f81779b.png) no-repeat center / 100% 100%;
+  }
+
+  &-pointer {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 110px;
+    left: 112.5px;
+    background: url(https://img.58cdn.com.cn/m58/tzlive/jy_luckydraw_pointer_3dbf592.png) no-repeat center / 100% 100%;
+    animation: btnAnimation 0.4s infinite paused;
+
+    &.isDrawing {
+      animation-play-state: running;
+    }
+  }
+
+  &-btns {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 360px;
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+@keyframes btnAnimation {
+  50% {
+    transform: scale(0.9);
+  }
+}

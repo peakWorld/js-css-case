@@ -1,9 +1,9 @@
 {
-  "editor.formatOnSave": true, // vscode保存, 自动格式化代码
+  "editor.formatOnSave": true, // 开启vscode, 保存格式化代码
   "[typescriptreact]": { // 关闭typescriptreact, 保存格式化代码
     "editor.formatOnSave": false,
   },
-  "[typescript]": { // 关闭typescriptreact,  保存格式化代码
+  "[typescript]": { // 关闭typescript, 保存格式化代码
     "editor.formatOnSave": false,
   },
   "editor.codeActionsOnSave": { // 开启eslint保存格式化代码

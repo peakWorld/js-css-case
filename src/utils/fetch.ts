@@ -1,7 +1,6 @@
 export interface RequestOptions extends RequestInit {
   headers?: Record<string, any>;
 }
-
 interface ResponseData<T> {
   statusCode: number;
   result: T;

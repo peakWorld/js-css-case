@@ -1,6 +1,6 @@
-const webpack = require('webpack')
-const path = require('path')
-const { DLL_PATH, ROOT_PATH } = require('./constants')
+const webpack = require('webpack');
+const path = require('path');
+const { DLL_PATH, ROOT_PATH } = require('./constants');
 
 module.exports = {
   context: ROOT_PATH,
@@ -13,13 +13,13 @@ module.exports = {
     filename: '[name].dll.js',
     library: {
       type: 'umd',
-      name: '[name]_library'
+      name: '[name]_library',
     },
   },
   plugins: [
     new webpack.DllPlugin({
       path: path.join(DLL_PATH, './[name]-manifest.json'),
-      name: '[name]_library'
-    })
-  ]
-}
+      name: '[name]_library',
+    }),
+  ],
+};
