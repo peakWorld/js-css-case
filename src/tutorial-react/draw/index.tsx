@@ -29,9 +29,6 @@ const Draw = ({ canDraw = true }: DrawProps) => {
         setDeg((deg) => deg + step);
       }, 50);
     }
-
-    // const a: string = 1235;
-    // console.log(a);
   }, [rotating]);
 
   const handleBeginDraw = async (drawNum: number) => {

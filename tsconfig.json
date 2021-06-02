@@ -4,7 +4,6 @@
     "module": "ESNext",
     "target": "ESNext",
     "jsx": "react",
-    "outDir": "./output",
     "baseUrl": "./",
     "paths": {
       "@components/*": [
@@ -36,7 +35,9 @@
     "preserveWatchOutput": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    // 不生成输出文件, 配合lint-staged阶段对ts错误进行检查
+    "noEmit": true
   },
   "include": [
     "src",
