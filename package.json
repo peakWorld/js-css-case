@@ -12,7 +12,7 @@
     "debug": "cross-env NODE_ENV=development node --inspect-brk=5858 node_modules/webpack/bin/webpack.js --config ./config/webpack.config.dev.js",
     "prepare": "husky install",
     "precommit": "lint-staged",
-    "lint": "eslint ./src --ext .ts,.tsx --max-warnings 0",
+    "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "npm run lint -- --fix"
   },
   "author": "",
@@ -66,11 +66,5 @@
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
-  },
-  "lint-staged": {
-    "src/**/*.(ts|tsx)": [
-      "bash -c tsc",
-      "npm run --silent lint:fix"
-    ]
   }
 }

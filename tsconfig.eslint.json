@@ -3,6 +3,7 @@
   "include": [
     "config/*.js",
     ".eslintrc.js",
+    "lint-staged.config.js",
     "src/**/*.ts",
     "src/**/*.tsx"
   ]
