@@ -37,7 +37,7 @@ module.exports = {
       },
     },
     {
-      files: ['config/*.js', '*.js'], // 对js文件进行eslint校验
+      files: ['config/**/*.js', '*.js'], // 对js文件进行eslint校验
       extends: ['eslint:recommended', 'plugin:prettier/recommended'],
       rules: {
         'no-undef': 0,

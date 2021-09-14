@@ -5,13 +5,13 @@
   "description": "js、css相关",
   "main": "index.js",
   "scripts": {
+    "start": "./scripts/start.sh",
+    "prepare": "node ./scripts/prepare.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.config.dev.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./config/webpack.config.dev.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.prod.js",
     "dll": "webpack --config ./config/webpack.config.dll.js",
     "debug": "cross-env NODE_ENV=development node --inspect-brk=5858 node_modules/webpack/bin/webpack.js --config ./config/webpack.config.dev.js",
-    "prepare": "husky install",
-    "precommit": "lint-staged",
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "npm run lint -- --fix"
   },

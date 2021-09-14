@@ -2,7 +2,7 @@
  * @Author: lyf
  * @Date: 2021-02-23 17:40:50
  * @LastEditors: lyf
- * @LastEditTime: 2021-05-20 19:46:42
+ * @LastEditTime: 2021-08-12 14:49:55
  * @Description: hooks的deps是对象的情况
  * @FilePath: /taro-cloud-demo/Users/a58/iworkspace/js-css-case/src/tutorial-react/case1/index.tsx
  */
@@ -27,6 +27,16 @@ const Case1 = () => {
     console.log('history', history.push('/mobile/draw?a=1&b=3'));
   };
 
+  const handleNoChangeData = () => {
+    // 为什么？
+    // setState((prev) => {
+    //   console.log('prev', prev);
+    //   return prev;
+    // });
+    console.log('handleNoChangeData...');
+    setState(state);
+  };
+
   console.log('state', state);
   return (
     <div>
@@ -36,6 +46,7 @@ const Case1 = () => {
       <button onClick={() => setState((state) => ({ ...state, x: state.x + 1 }))}>x加一</button>
       <button onClick={handleTime}>变化6</button>
       <button onClick={handleChangeRoute}>change route</button>
+      <button onClick={handleNoChangeData}>不改变状态</button>
     </div>
   );
 };

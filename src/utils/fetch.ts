@@ -23,7 +23,7 @@ export function request<T>(url: string, params: Record<string, any> = {}, option
       // 设置默认Content-Type
       headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
       options.body = stringify(params);
-    } else if (contentType.includes('application/json;charset=utf-8')) {
+    } else if (contentType.includes('application/json')) {
       // 针对不同的Content-Type, 对请求数据做相应的处理
       options.body = JSON.stringify(params);
     }
@@ -40,7 +40,6 @@ export function request<T>(url: string, params: Record<string, any> = {}, option
         if (status >= 200 && status < 300 && ok) {
           return response.json();
         }
-
         reject(new Error(JSON.stringify({ code: status, text: statusText })));
         return;
       })
